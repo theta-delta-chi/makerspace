@@ -25,7 +25,14 @@
     </div>
     <div class="twelve wide column">
       <table class='ui striped table'>
-        <thead><tr><th colspan='2'>Recent Emergencies</th></tr></thead>
+        <thead>
+          <tr><th colspan='2'>
+            Recent Emergencies
+            <button id='safety_test' class='ui right floated button'>
+              Send Test SMS
+            </button>
+          </th></tr>
+        </thead>
         <tbody>
         <% @emergencies.each do |emergency| %>
           <tr>

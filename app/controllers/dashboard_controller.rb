@@ -1,7 +1,7 @@
 class DashboardController < ApplicationController
   def index
-    logger.fatal('Processing a request in index!')
-    @emergencies = [{ :time => '9am', :link => 'google.com'}]
-    @contacts = [{:name => 'Sully', :number => '42' }]
+    logger.info('Processing a request in index!')
+    @emergencies = Emergency.all
+    @contacts = Contact.all
   end
 end
