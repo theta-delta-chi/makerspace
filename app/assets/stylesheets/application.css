@@ -11,3 +11,7 @@
  *= require_self
  *= require_tree .
  */
+@import "semantic-ui";
+.ui.container{
+  padding-top: 2%;
+}
