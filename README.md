@@ -12,3 +12,14 @@ After following those steps, you'll be inside the repository and able to manage 
 
 - `bundle install --path vendor/bundle` - We're not allowed to install globally install packages on the MIT system (shocker), so this is the command used to install new Gems.  Whenever you modify the Gemfile, run this afterwards to actually bring in the new Gems.
 - `git pull` - Deploy fresh code from this repo by pulling while ssh'd into the server.
+
+## Setting Up Constants
+The Dropbox and Twilio APIs have secret keys which need to be loaded into the environment.  That's being handled by [Figaro](https://github.com/laserlemon/figaro), a library which reads lines out of `config/application.yml` and turns them into environment variables.
+
+Sample File:
+```
+TWILIO_NUMBER: "+1234567890"
+TWILIO_ACCOUNT_SID: "XXX...XXX"
+TWILIO_AUTH_TOKEN: "XXX...XXX"
+DROPBOX_OAUTH_BEARER: "XXX...XXX"
+```
