@@ -1,5 +1,5 @@
 # TDC Makerspace Emergency System
-This code powers the server managing the Makerspace emergency system.  [Here's ademo](https://youtu.be/eXu26cHRDBs) of what the system does.
+This code powers the server managing the Makerspace emergency system.  [Here's a demo](https://youtu.be/eXu26cHRDBs) of what the system does.
 
 ## Managing the Web Server
 The Makerspace Rails server is hosted by MIT within the TDC locker.  Assuming you have access rights to said locker, these steps will get you into the environment.
