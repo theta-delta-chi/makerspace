@@ -3,16 +3,19 @@
 // You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready(function(){
-  $('#edit_contacts').on('click', function(){
-    $('#contacts_list').replaceWith($('#contacts_form'));
+  $(document).on('click', '#edit_contacts', function(){
+    $('#contacts_list').replaceWith($('#contacts_form').clone(true));
   });
 
-  $('.remove_contact').on('click', function(){
+  $(document).on('click', '.remove_contact', function(){
     $(this)[0].parentElement.parentElement.remove();
   });
 
-  $('#add_contact').on('click', function(){
+  $(document).on('click', '#add_contact', function(){
     $('#contact_form_list').append($('#new_contact_fields').clone(true));
   });
-
+  
+  $('#safety_test').on('click', function(){
+    $.ajax({ url : '/makerspace/test', type : 'POST'});
+  });
 });
