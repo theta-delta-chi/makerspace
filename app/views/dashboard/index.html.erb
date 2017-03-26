@@ -3,7 +3,7 @@
     <h1 class="ui huge dividing header">TDC Makerspace</h1>
   </div>
   <div class="row">
-    <div class="four wide column">
+    <div class="six wide column" id="contacts_column">
       <table class="ui striped table">
         <thead><tr>
             <th colspan='2'>Emergency Contact Numbers</th>
@@ -12,7 +12,7 @@
         <% @contacts.each do |contact| %>
           <tr>
             <td><%= contact[:name] %></td>
-            <td><%= contact[:number] %></td>
+            <td><%= contact[:phone] %></td>
           </tr>
         <% end %>
         </tbody>
@@ -23,12 +23,12 @@
         </th></tr></tfoot>
       </table>
     </div>
-    <div class="twelve wide column">
+    <div class="ten wide column">
       <table class='ui striped table'>
         <thead>
           <tr><th colspan='2'>
             Recent Emergencies
-            <button id='safety_test' class='ui right floated button'>
+            <button id='safety_test' class='ui right floated compact button'>
               Send Test SMS
             </button>
           </th></tr>
@@ -42,6 +42,11 @@
         <% end %>
         </tbody>
       </table>
+    </div>
+  </div>
+  <div id='contacts_form' class='row'>
+    <div class='six wide column'>
+    <%= render partial: 'contact_form', locals: {contacts: @contacts, new_contact: @new_contact} %>
     </div>
   </div>
 </div>

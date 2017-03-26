@@ -4,3 +4,11 @@
 $('#edit_contacts').on('click', function(){
   console.log("Clicked the edit contacts button!");
 });
+
+$('.remove_contact').on('click', function(){
+  console.log("Clicked the remove contact button!");
+});
+
+$('#add_contact').on('click', function(){
+  console.log("Clicked the add contact button!");
+});
