@@ -1,6 +1,5 @@
 Makerspace::Application.routes.draw do
   post "contacts/set"
-  get "contacts/get"
   root :to => "dashboard#index"
   get "dashboard/index"
   post 'emergency' => 'emergencies#create'
