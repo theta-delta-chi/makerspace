@@ -4,7 +4,7 @@ Makerspace::Application.routes.draw do
   root :to => "dashboard#index"
   get "dashboard/index"
   post 'emergency' => 'emergencies#create'
-  post 'test' => 'emergencies#safety_test'
+  post 'emergency/test' => 'emergencies#safety_test'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

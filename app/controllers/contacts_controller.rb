@@ -11,9 +11,10 @@ class ContactsController < ApplicationController
     end
     logger.info('--- Completed updating ---')
     @contacts = Contact.all
+    @new_contact = Contact.new
     respond_to do |format|
       format.js { 
-        render 'dashboard/update_list', locals: { contacts: @contacts }
+        render 'dashboard/update_list', locals: { contacts: @contacts, new_contact: @new_contact }
       }
     end
   end

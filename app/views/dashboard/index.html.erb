@@ -1,6 +1,8 @@
-<div class="ui grid">
+<div class="ui stackable grid">
   <div class="row">
-    <h1 class="ui huge dividing header">TDC Makerspace Emergency System</h1>
+    <h1 class="ui huge dividing header">
+      <img src="https://pbs.twimg.com/profile_images/235198826/interlok3_copy_reasonably_small.jpg" class='ui bottom aligned image'>
+      TDC Makerspace Emergency System</h1>
   </div>
   <div class="row">
     <%= render partial: 'contacts', locals: {contacts: @contacts} %>
@@ -9,7 +11,7 @@
         <thead>
           <tr><th colspan='2'>
             Recent Emergencies
-            <button id='safety_test' class='ui right floated compact button'>
+            <button id='safety_test' type='button' class='ui right floated compact button'>
               Send Test SMS
             </button>
           </th></tr>
@@ -26,9 +28,7 @@
     </div>
   </div>
   <div id='contacts_form_container' class='row'>
-    <div id='contacts_form' class='six wide column'>
     <%= render partial: 'contact_form', locals: {contacts: @contacts, new_contact: @new_contact} %>
-    </div>
   </div>
 </div>
 

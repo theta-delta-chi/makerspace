@@ -16,6 +16,6 @@ $(document).ready(function(){
   });
   
   $('#safety_test').on('click', function(){
-    $.ajax({ url : '/makerspace/test', type : 'POST'});
+    $.post('emergency/test');
   });
 });
