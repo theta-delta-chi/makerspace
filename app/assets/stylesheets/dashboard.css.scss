@@ -2,3 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "semantic-ui";
+#contacts_form_container{
+  display: none;
+}
+#new_contact_container{
+  display: none;
+}

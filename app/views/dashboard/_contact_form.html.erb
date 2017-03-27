@@ -1,0 +1,54 @@
+<div class='six wide column' id='contacts_form'>
+<%= form_tag "contacts/set", :remote => true do %>
+  <table class='ui very basic table'>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>
+          <button id='add_contact' type='button' class='ui small button'>
+            Add
+          </button>
+        </th>
+      </tr>
+    </thead>
+    <tbody id='contact_form_list'>
+      <% contacts.each do |contact| %>
+        <%= fields_for "contacts[]", contact, index: nil do |f| %>
+        <tr>
+          <td><div class='ui small fluid input'><%= f.text_field :name %></div></td>
+          <td><div class='ui small fluid input'><%= f.text_field :phone %></div></td>
+          <td class='collapsing'>
+            <button type='button' class='remove_contact ui small button'>
+              Remove
+            </button>
+          </td>
+        </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th colspan='3'>
+          <%= submit_tag "Set Contacts", class: "ui right floated small primary button" %>
+        </th>
+      </tr>
+    </tfoot>
+  </table>
+<% end %>
+<div id='new_contact_container'>
+  <%= fields_for "contacts[]", new_contact do |f| %>
+  <table>
+    <tr id='new_contact_fields'>
+      <td><div class='ui small fluid input'><%= f.text_field :name, :class => 'ui input' %></div></td>
+      <td><div class='ui small fluid input'><%= f.text_field :phone, :class => 'ui input' %></div></td>
+      <td class='collapsing'>
+        <button type='button' class='remove_contact ui small button'>
+          Remove
+        </button>
+      </td>
+    </tr>
+  </table>
+  <% end %>
+</div>
+</div>
