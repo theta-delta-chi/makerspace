@@ -13,5 +13,6 @@ $(document).ready(function(){
   
   $('#safety_test').on('click', function(){
     $.post('emergency/test');
+    alert("Your test request has been sent to Twilio, the contacts should receive an MMS in the next minute.")
   });
 });

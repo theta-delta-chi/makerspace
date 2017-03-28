@@ -6,7 +6,7 @@
         <th>Name</th>
         <th>Phone</th>
         <th>
-          <button id='add_contact' type='button' class='ui small button'>
+          <button id='add_contact' type='button' class='ui small basic button'>
             Add
           </button>
         </th>
@@ -19,7 +19,7 @@
           <td><div class='ui small fluid input'><%= f.text_field :name %></div></td>
           <td><div class='ui small fluid input'><%= f.text_field :phone %></div></td>
           <td class='collapsing'>
-            <button type='button' class='remove_contact ui small button'>
+            <button type='button' class='remove_contact ui small basic button'>
               Remove
             </button>
           </td>
@@ -30,7 +30,7 @@
     <tfoot>
       <tr>
         <th colspan='3'>
-          <%= submit_tag "Set Contacts", class: "ui right floated small primary button" %>
+          <%= submit_tag "Set Contacts", class: "ui right floated small primary basic button" %>
         </th>
       </tr>
     </tfoot>
@@ -43,7 +43,7 @@
       <td><div class='ui small fluid input'><%= f.text_field :name, :class => 'ui input' %></div></td>
       <td><div class='ui small fluid input'><%= f.text_field :phone, :class => 'ui input' %></div></td>
       <td class='collapsing'>
-        <button type='button' class='remove_contact ui small button'>
+        <button type='button' class='remove_contact ui small basic button'>
           Remove
         </button>
       </td>

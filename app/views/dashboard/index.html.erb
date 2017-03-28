@@ -9,24 +9,13 @@
   <div class="row">
     <%= render partial: 'contacts', locals: {contacts: @contacts} %>
     <div class="ten wide column">
-      <table class='ui very basic table'>
-        <thead>
-          <tr><th colspan='2'>
-            Recent Emergencies
-            <button id='safety_test' type='button' class='ui right floated compact button'>
-              Send Test SMS
-            </button>
-          </th></tr>
-        </thead>
-        <tbody>
-        <% @emergencies.each do |emergency| %>
-          <tr>
-            <td><%= emergency[:time] %></td>
-            <td><%= emergency[:link] %></td>
-          </tr>
-        <% end %>
-        </tbody>
-      </table>
+      <div class='ui small header'>
+        <%= @img_time %>
+      </div>
+      <div class='ui large centered images'>
+        <img src="<%= @picam_link %>" class='ui image'>
+        <img src="<%= @usbcam_link %>" class='ui image'>
+      </div>
     </div>
   </div>
   <div id='contacts_form_container' class='row'>
