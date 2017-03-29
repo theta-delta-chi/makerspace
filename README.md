@@ -4,9 +4,9 @@ TDC at MIT recently built a Makerspace in their basement and decided to add an e
 ## How It Works
 The Makerspace already had two cameras set up inside of it.  They were hooked up to a Raspberry Pi, set to take a picture whenever they detected motion and then upload the picture to Dropbox.  
 
-We added [a big button](docs/fuck_it.jpg) on the wall and hooked it up to yet another Raspberry Pi o that when the button gets pressed, a POST request gets sent to `tdc.mit.edu/makerspace/emergency`.  This triggers the server to request the most recent images from the Dropbox API and then send them to a list of emergency numbers via Twilio.
+We added [a big button](docs/fuck_it.jpg) on the wall and hooked it up to yet another Raspberry Pi o that when the button gets pressed, a POST request gets sent to `tdc.mit.edu/makerspace/emergency`.  This triggers the server to request the most recent images from the Dropbox API and then send them to a list of emergency numbers via Twilio. The application also provides a simple dashboard at `tdc.mit.edu/makerspace` which lets users update the listed contacts, see the most recent images, and test the system. 
 
-The application provides a simple dashboard at `tdc.mit.edu/makerspace` which lets users update the listed contacts, see the most recent images, and test the system.
+One implementation detail to note: the pre-existing system uploaded images using a naming scheme such that normal alphanumeric sort is also chronologically ordered.  We therefore find the most recent image by just grabbing the last one off the list.  Take care to follow the same pattern if using this code directly.
 
 ## Managing the Web Server
 The Makerspace Rails server is hosted by MIT within the TDC locker.  Assuming you have access rights to said locker, these steps will get you into the environment.
