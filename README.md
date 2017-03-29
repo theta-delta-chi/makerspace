@@ -1,5 +1,12 @@
 # TDC Makerspace Emergency System
-This code powers the server managing the Makerspace emergency system.  [Here's a demo](https://youtu.be/eXu26cHRDBs) of what the system does.
+TDC at MIT recently built a Makerspace in their basement and decided to add an emergency system.  This Rails server runs on MIT systems to power that emergency button. [Click here](https://youtu.be/eXu26cHRDBs) for a campy demonstration of the system in action.
+
+## How It Works
+The Makerspace already had two cameras set up inside of it.  They were hooked up to a Raspberry Pi, set to take a picture whenever they detected motion and then upload the picture to Dropbox.  
+
+We added [a big button](docs/fuck_it.jpg) on the wall and hooked it up to yet another Raspberry Pi o that when the button gets pressed, a POST request gets sent to `tdc.mit.edu/makerspace/emergency`.  This triggers the server to request the most recent images from the Dropbox API and then send them to a list of emergency numbers via Twilio.
+
+The application provides a simple dashboard at `tdc.mit.edu/makerspace` which lets users update the listed contacts, see the most recent images, and test the system.
 
 ## Managing the Web Server
 The Makerspace Rails server is hosted by MIT within the TDC locker.  Assuming you have access rights to said locker, these steps will get you into the environment.
@@ -11,7 +18,7 @@ The Makerspace Rails server is hosted by MIT within the TDC locker.  Assuming yo
 After following those steps, you'll be inside the repository and able to manage it.  Some useful commands:
 
 - `bundle install --path vendor/bundle` - We're not allowed to install globally install packages on the MIT system (shocker), so this is the command used to install new Gems.  Whenever you modify the Gemfile, run this afterwards to actually bring in the new Gems.
-- `git pull` - Deploy fresh code from this repo by pulling while ssh'd into the server.
+- `git pull` - Deploy fresh code from this repo by pulling while ssh'd into the server. Be careful to check the `.gitignore` and not accidentally push secret keys to this repo.
 
 ## Setting Up Constants
 The Dropbox and Twilio APIs have secret keys which need to be loaded into the environment.  That's being handled by [Figaro](https://github.com/laserlemon/figaro), a library which reads lines out of `config/application.yml` and turns them into environment variables.
